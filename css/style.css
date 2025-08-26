@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    --primary-color: #a246b9;
+    --yellow-color: #ffd166;
+}
+
+body{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+/* Utility Classes */
+
+.text-primary-color{
+    color: var(--primary-color);
+}
+.bg-primary-color{
+    background-color: var(--primary-color);
+}
+.bg-yellow-color{
+    background-color: var(--yellow-color);
+}
+.font-poppins{
+    font-family: 'Poppins',serif;
+}
+.font-mont{
+    font-family: "Montserrat", sans-serif;;
+}
+
+.text-outline {
+    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
+        1px 1px 0 #fff;
+}
+
+/* Home Page Styles */
+.logo{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+.carousel-item{
+    background-color: black !important;
+}
+.carousel-item img{
+    width: 100% !important;
+    height: 100%;
+    max-height: 600px;
+    object-fit: cover;
+    opacity: 0.55;
+}
+.carousel-caption{
+    color: white !important;
+    bottom: 50% !important;
+    transform: translateY(50%);
+}
+.carousel-indicators button{
+    width: 10px !important;
+    height: 10px !important;
+    background-color: white !important;
+    border-radius: 50%;
+}
+.bible{
+    width: 120px;
+}
+
+/* Media Queries */
+@media screen and (min-width: 768px) {
+    .logo{
+        width: 90px;
+        height: 90px;
+    }
+}
+@media screen and (min-width: 992px) {
+    .logo{
+        width: 100px;
+        height: 100px;
+    }
+}
