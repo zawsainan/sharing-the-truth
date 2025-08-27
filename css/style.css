@@ -3,6 +3,8 @@
 :root{
     --primary-color: #a246b9;
     --yellow-color: #ffd166;
+    --transition-speed: 0.5s;
+  --transition-timing: ease;
 }
 
 body{
@@ -82,6 +84,105 @@ body{
     background: rgba(0,0 , 0,0.35);
     z-index: 0;
 }
+
+/* Activities Page Styles */
+.expand {
+  width: 45px;
+  height: 45px;
+  transform: scale(0);
+  transition: transform var(--transition-speed) var(--transition-timing);
+}
+
+.zoom-in {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem; 
+}
+
+.zoom-in > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-speed) var(--transition-timing);
+}
+.zoom-in:hover > img {
+  transform: scale(1.4);
+}
+
+.zoom-in:hover .gallery-overlay {
+  opacity: 0.6;
+  visibility: visible;
+}
+
+.zoom-in:hover .expand {
+  transform: scale(1);
+}
+
+.zoom-in:hover .gallery-title {
+  bottom: 4px;
+  opacity: 1;
+}
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1; 
+  
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+
+  transition: opacity var(--transition-speed) var(--transition-timing),
+              visibility var(--transition-speed) var(--transition-timing);
+}
+
+.gallery-title {
+  position: absolute;
+  z-index: 2; 
+  bottom: -100%; 
+  left: 0;
+  
+  width: 100%;
+  text-align: center;
+  color: white;
+  opacity: 0; 
+  transition: bottom 0.3s var(--transition-timing),
+              opacity 0.3s var(--transition-timing);
+}
+
+/* --- Modal Container --- */
+.modal-container {
+  position: fixed;
+  inset: 0; 
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.overlay{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.9;
+}
+.modal-box{
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    z-index: 4;
+}
+
 /* Media Queries */
 @media screen and (min-width: 768px) {
     .logo{

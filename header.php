@@ -46,7 +46,7 @@
                             <a class="nav-link" href="#">Audios</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Activities</a>
+                            <a class="nav-link" href="activities.php">Activities</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="about-us.php">About Us</a>
