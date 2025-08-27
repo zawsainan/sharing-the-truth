@@ -12,7 +12,9 @@ body{
 }
 
 /* Utility Classes */
-
+.drop-shadow {
+    box-shadow: 0px 4px 8px 0px #0000000f, 0px 0px 4px 0px #0000000a !important;
+}
 .text-primary-color{
     color: var(--primary-color);
 }
@@ -64,7 +66,22 @@ body{
 .bible{
     width: 120px;
 }
+/* About Us Page Styles */
 
+.banner-image {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    background-image: url("/assets/images/slider-1.png");
+}
+.banner-image::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0 , 0,0.35);
+    z-index: 0;
+}
 /* Media Queries */
 @media screen and (min-width: 768px) {
     .logo{

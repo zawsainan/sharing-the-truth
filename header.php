@@ -34,7 +34,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav gap-lg-4 mx-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link active" aria-current="page" href="/">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Articles</a>
@@ -49,7 +49,7 @@
                             <a class="nav-link" href="#">Activities</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">About Us</a>
+                            <a class="nav-link" href="about-us.php">About Us</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
