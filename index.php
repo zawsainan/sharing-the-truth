@@ -1,8 +1,8 @@
 <?php include('header.php') ?>
 <main>
     <!-- Carousel Section -->
-    <div id="carouselExampleDark" class="carousel carousel-dark bg-black slide" data-bs-wrap="true" data-bs-ride="carousel">
-        <div class="carousel-indicators">
+    <div id="carouselExampleDark" class="carousel carousel-dark bg-black slide" data-bs-wrap="true" data-bs-pause="false" data-bs-ride="carousel">
+        <div class="carousel-indicators mb-5">
             <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
             <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
@@ -48,28 +48,88 @@
         </div>
     </div>
 
-    <div class="container my-4 my-lg-5">
+    <!-- Other Channels Section  -->
+
+    <div class="position-relative">
+        <div class="position-absolute top-50 start-50 translate-middle px-5 py-1 drop-shadow rounded-5 z-2 bg-white" style="background-color: #f4f7fc;">
+            <div class="d-flex gap-5 ">
+                <a class="cursor-pointer text-decoration-none text-dark other-channel py-2">
+                    <img style="width: 100px; height: 60px" class="object-fit-contain" src="assets/images/rawang.png" alt="">
+                    <p class="text-center mb-0">Rawang</p>
+                </a>
+                <a class="cursor-pointer text-decoration-none text-dark other-channel p-2">
+                    <img style="width: 100px; height: 60px" class="object-fit-contain" src="assets/images/rakhine.png" alt="">
+                    <p class="text-center mb-0">Rakhine</p>
+                </a>
+                <a class="cursor-pointer text-decoration-none text-dark other-channel p-2">
+                    <img style="width: 100px; height: 60px" class="object-fit-contain" src="assets/images/shan.png" alt="">
+                    <p class="text-center mb-0">Shan</p>
+                </a>
+                <a class="cursor-pointer text-decoration-none text-dark other-channel p-2">
+                    <img style="width: 100px; height: 60px" class="object-fit-contain" src="assets/images/mon.png" alt="">
+                    <p class="text-center mb-0">Mon</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container pt-5 my-4 my-lg-5">
 
         <!-- About Us Section  -->
-        <div class="row mb-4 mb-lg-5">
-            <div class="col-5">
-                <div class="w-100 h-100 bg-warning"></div>
+        <div class="row pt-3 mb-4 mb-lg-5 gx-5">
+            <div class="col-12 col-md-5">
+                <img src="assets/images/whoweare.jpg" alt="" class="w-100 h-100 object-fit-cover">
             </div>
-            <div class="col-7">
+            <div class="col-12 col-md-7">
                 <div>
-                    <h1>About Us</h1>
-                    <p>Lorem, ipsum dolor Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, beatae? Enim ratione aliquam officia minus magni, doloremque blanditiis aut voluptatibus architecto praesentium aspernatur maxime totam facilis reprehenderit obcaecati laudantium! Blanditiis odio animi, aspernatur adipisci pariatur neque quam beatae repellat qui. Aperiam delectus assumenda expedita dolor, tempore neque? Sit, ipsa rerum? sit amet consectetur adipisicing elit. Hic, error modi! Architecto, mollitia corrupti delectus molestias id sed illum nihil omnis temporibus praesentium corporis accusamus cum rem ex doloribus esse.</p>
+                    <h1>Who We Are</h1>
+                    <p class="text-justify lh-17">ကျွန်ုပ်တို့သည် ယေရှုခရစ်တော်၏ဧဝံဂေလိတရားကို ဝေငှရန် ရည်စူးထားသော ခရစ်ယာန်မီဒီယာအဖွဲ့အစည်းတစ်ခုဖြစ်သည်။ ဒေသခံယုံကြည်သူများကို စွမ်းရည်မြှင့်တင်ရန်နှင့် တိုင်းရင်းသားဘာသာစကားအမျိုးမျိုးဖြင့် သတင်းကောင်းကို ဖြန့်ဝေရန်အတွက် ရိုးရာယဉ်ကျေးမှုနှင့်ကိုက်ညီသော မီဒီယာများကို ဖန်တီးပါသည်။ ကျွန်ုပ်တို့၏ရည်ရွယ်ချက်မှာ ဘုရားသခင်၏ဘုန်းတော်ကို သိကျွမ်းခြင်းပညာသည် မြေကြီးကို လွှမ်းမိုးစေရန်ဖြစ်သည်။ သမ္မာကျမ်းစာကိုအခြေခံပြီး တပည့်တော်ဖြစ်ခြင်းနှင့် အသင်းတော်ကြီးထွားမှုကို အထောက်အကူပြုမည့် မီဒီယာများ ထုတ်လုပ်ရန် ကျွန်ုပ်တို့ ကတိပြုပါသည်။</p>
                     <a href="/about-us.php" class="btn btn-outline-success rounded-pill py-2 px-3">
                         Learn More
                     </a>
                 </div>
             </div>
         </div>
-        <!-- Latest Articles, Videos and Audios Section  -->
+        <!-- Latest Videos Section  -->
         <div class="mb-4 mb-lg-5">
-            <h1>Latest Articles</h1>
-            <div class="row gx-2 my-3">
-                <div class="col-12 col-md-6 col-lg-4">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+                <h4 class="fw-bold text-dark mb-0">Latest Videos</h4>
+                <a href="#" class="btn btn-view-all fw-semibold px-0">
+                    View All Videos
+                </a>
+            </div>
+            <div class="row gx-3 my-3">
+                
+            <?php include('video-card.php') ?>
+
+
+
+            </div>
+
+        </div>
+        <!-- Latest Articles Section  -->
+        <div class="mb-4 mb-lg-5">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+                <h4 class="fw-bold text-dark mb-0">Latest Articles</h4>
+                <a href="#" class="btn btn-view-all fw-semibold px-0">
+                    View All Articles
+                </a>
+            </div>
+            <div class="row gx-3 my-3">
+                <?php include('article-card.php') ?>
+            </div>
+
+        </div>
+        <!-- Latest Audios Section  -->
+        <div class="mb-4 mb-lg-5">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+                <h4 class="fw-bold text-dark mb-0">Latest Audios</h4>
+                <a href="#" class="btn btn-view-all fw-semibold px-0">
+                    View All Audios
+                </a>
+            </div>
+            <div class="row gx-3 my-3">
+                <div class="col-12 col-md-6 col-lg-3">
                     <!-- Article Card  -->
                     <div class="rounded-2 position-relative">
                         <span class="position-absolute top-0 start-0 m-2">
@@ -78,47 +138,82 @@
                                 <path d="M7 12h2v8H7zm8 0h2v8h-2z"></path>
                             </svg>
                         </span>
-                        <div class="bg-secondary w-100 mb-3 rounded-1 overflow-hidden" style="height: 180px;"></div>
-                        <h4>Title</h4>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim fuga dolorum aut quaerat alias nesciunt, obcaecati excepturi autem unde debitis sunt illo fugiat neque voluptatem velit, nemo repudiandae magnam laudantium?</p>
-                        <a href="" class="rounded-pill btn btn-outline-success">View More</a>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                    <!-- Video Card  -->
-                    <div class="rounded-2 position-relative">
-                        <span class="position-absolute top-0 start-0 m-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);">
-                                <path d="M4 8H2v12a2 2 0 0 0 2 2h12v-2H4z"></path>
-                                <path d="M20 2H8a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm-9 12V6l7 4z"></path>
+                        <div class="bg-secondary w-100 mb-3 rounded-1 overflow-hidden" style="height: 150px;"></div>
+                        <h5>Title</h5>
+                        <p class="clamp-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim fuga dolorum aut quaerat alias nesciunt, obcaecati excepturi autem unde debitis sunt illo fugiat neque voluptatem velit, nemo repudiandae magnam laudantium?</p>
+                        <a href="#" class="btn-article-readmore d-inline-flex align-items-center px-4 py-2 mt-2">
+                            Read More
+                            <svg class="ms-1" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                             </svg>
-                        </span>
-                        <div class="bg-secondary w-100 mb-3 rounded-1 overflow-hidden" style="height: 180px;"></div>
-                        <h4>Title</h4>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim fuga dolorum aut quaerat alias nesciunt, obcaecati excepturi autem unde debitis sunt illo fugiat neque voluptatem velit, nemo repudiandae magnam laudantium?</p>
-                        <a href="" class="rounded-pill btn btn-outline-success">View More</a>
+                        </a>
                     </div>
                 </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
+                <div class="col-12 col-md-6 col-lg-3">
                     <!-- Article Card  -->
                     <div class="rounded-2 position-relative">
                         <span class="position-absolute top-0 start-0 m-2">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);">
-                                <path d="M19.903 8.586a.997.997 0 0 0-.196-.293l-6-6a.997.997 0 0 0-.293-.196c-.03-.014-.062-.022-.094-.033a.991.991 0 0 0-.259-.051C13.04 2.011 13.021 2 13 2H6c-1.103 0-2 .897-2 2v16c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2V9c0-.021-.011-.04-.013-.062a.952.952 0 0 0-.051-.259c-.01-.032-.019-.063-.033-.093zM16.586 8H14V5.414L16.586 8zM6 20V4h6v5a1 1 0 0 0 1 1h5l.002 10H6z"></path>
-                                <path d="M8 12h8v2H8zm0 4h8v2H8zm0-8h2v2H8z"></path>
+                                <path d="M20 12v-1.707c0-4.442-3.479-8.161-7.755-8.29-2.204-.051-4.251.736-5.816 2.256A7.933 7.933 0 0 0 4 10v2c-1.103 0-2 .897-2 2v4c0 1.103.897 2 2 2h2V10a5.95 5.95 0 0 1 1.821-4.306 5.977 5.977 0 0 1 4.363-1.691C15.392 4.099 18 6.921 18 10.293V20h2c1.103 0 2-.897 2-2v-4c0-1.103-.897-2-2-2z"></path>
+                                <path d="M7 12h2v8H7zm8 0h2v8h-2z"></path>
                             </svg>
                         </span>
-                        <div class="bg-secondary w-100 mb-3 rounded-1 overflow-hidden" style="height: 180px;"></div>
-                        <h4>Title</h4>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim fuga dolorum aut quaerat alias nesciunt, obcaecati excepturi autem unde debitis sunt illo fugiat neque voluptatem velit, nemo repudiandae magnam laudantium?</p>
-                        <a href="" class="rounded-pill btn btn-outline-success">View More</a>
+                        <div class="bg-secondary w-100 mb-3 rounded-1 overflow-hidden" style="height: 150px;"></div>
+                        <h5>Title</h5>
+                        <p class="clamp-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim fuga dolorum aut quaerat alias nesciunt, obcaecati excepturi autem unde debitis sunt illo fugiat neque voluptatem velit, nemo repudiandae magnam laudantium?</p>
+                        <a href="#" class="btn-article-readmore d-inline-flex align-items-center px-4 py-2 mt-2">
+                            Read More
+                            <svg class="ms-1" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <!-- Article Card  -->
+                    <div class="rounded-2 position-relative">
+                        <span class="position-absolute top-0 start-0 m-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);">
+                                <path d="M20 12v-1.707c0-4.442-3.479-8.161-7.755-8.29-2.204-.051-4.251.736-5.816 2.256A7.933 7.933 0 0 0 4 10v2c-1.103 0-2 .897-2 2v4c0 1.103.897 2 2 2h2V10a5.95 5.95 0 0 1 1.821-4.306 5.977 5.977 0 0 1 4.363-1.691C15.392 4.099 18 6.921 18 10.293V20h2c1.103 0 2-.897 2-2v-4c0-1.103-.897-2-2-2z"></path>
+                                <path d="M7 12h2v8H7zm8 0h2v8h-2z"></path>
+                            </svg>
+                        </span>
+                        <div class="bg-secondary w-100 mb-3 rounded-1 overflow-hidden" style="height: 150px;"></div>
+                        <h5>Title</h5>
+                        <p class="clamp-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim fuga dolorum aut quaerat alias nesciunt, obcaecati excepturi autem unde debitis sunt illo fugiat neque voluptatem velit, nemo repudiandae magnam laudantium?</p>
+                        <a href="#" class="btn-article-readmore d-inline-flex align-items-center px-4 py-2 mt-2">
+                            Read More
+                            <svg class="ms-1" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <!-- Article Card  -->
+                    <div class="rounded-2 position-relative">
+                        <span class="position-absolute top-0 start-0 m-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);">
+                                <path d="M20 12v-1.707c0-4.442-3.479-8.161-7.755-8.29-2.204-.051-4.251.736-5.816 2.256A7.933 7.933 0 0 0 4 10v2c-1.103 0-2 .897-2 2v4c0 1.103.897 2 2 2h2V10a5.95 5.95 0 0 1 1.821-4.306 5.977 5.977 0 0 1 4.363-1.691C15.392 4.099 18 6.921 18 10.293V20h2c1.103 0 2-.897 2-2v-4c0-1.103-.897-2-2-2z"></path>
+                                <path d="M7 12h2v8H7zm8 0h2v8h-2z"></path>
+                            </svg>
+                        </span>
+                        <div class="bg-secondary w-100 mb-3 rounded-1 overflow-hidden" style="height: 150px;"></div>
+                        <h5>Title</h5>
+                        <p class="clamp-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim fuga dolorum aut quaerat alias nesciunt, obcaecati excepturi autem unde debitis sunt illo fugiat neque voluptatem velit, nemo repudiandae magnam laudantium?</p>
+                        <a href="#" class="btn-article-readmore d-inline-flex align-items-center px-4 py-2 mt-2">
+                            Read More
+                            <svg class="ms-1" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </a>
                     </div>
                 </div>
 
 
 
             </div>
+
         </div>
         <div class="text-center">
             <img class="bible" src="assets/images/bibleicon.jfif" alt="" />

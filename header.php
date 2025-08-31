@@ -12,47 +12,46 @@
 
 <body>
     <!-- Nav bar section  -->
-    <nav>
-        <div class="d-none d-lg-flex align-items-center" style="background-image: url(assets/images/sky.jpg); background-position: center; background-size: cover;">
-            <a class="navbar-brand mx-auto d-inline-flex align-items-center gap-3 py-1" href="#">
-                <img src="/assets/images/logo.png" class="logo" alt="">
-                <div>
-                    <h1 class="text-outline text-primary-color mb-0">Sharing the Truth</h1>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing.</p>
-                </div>
-            </a>
-        </div>
-        <div class="navbar navbar-expand-lg bg-yellow-color">
-            <div class="container-fluid px-1 px-md-4">
-                <a class="navbar-brand d-lg-none" href="#">
-                    <img src="/assets/images/logo.png" class="logo" alt="">
-
+    <nav class="position-relative">
+        <div class="navbar navbar-expand-lg bg-transparent position-absolute w-100 z-3 top-0 py-0">
+            <div class="container-fluid px-1 px-md-4 " style="background-color: rgba(0, 0, 0, 0.3);">
+                <a class="navbar-brand py-2" href="/">
+                    <div class="d-inline-flex align-items-center">
+                        <img src="/assets/images/logo.png" class="logo" alt="">
+                        <div class="ms-3 d-none d-md-block">
+                            <h4 class="text-outline mb-0">Sharing The Truth</h4>
+                            <p class="text-xs text-white mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+                        </div>
+                    </div>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon text-white"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav gap-lg-4 mx-auto">
+                    <ul class="ms-auto navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/">Home</a>
+                            <a class="nav-link text-white active" aria-current="page" href="/">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Articles</a>
+                            <a class="nav-link text-white" href="#">Articles</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Videos</a>
+                            <a class="nav-link text-white" href="#">Videos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Audios</a>
+                            <a class="nav-link text-white" href="#">Audios</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="activities.php">Activities</a>
+                            <a class="nav-link text-white" href="activities.php">Activities</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="about-us.php">About Us</a>
+                            <a class="nav-link text-white" href="about-us.php">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="contact-us.php">Contact Us</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Other Channels
                             </a>
                             <ul class="dropdown-menu">
@@ -60,9 +59,6 @@
                                 <li><a class="dropdown-item" href="#">Shan</a></li>
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact-us.php">Contact Us</a>
                         </li>
 
                     </ul>
