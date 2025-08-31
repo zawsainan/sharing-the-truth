@@ -2,11 +2,13 @@
 
 :root{
     --primary-color: #a246b9;
-    --yellow-color: #ffd166;
+    --yellow-color: #ffbb00;
     --transition-speed: 0.5s;
   --transition-timing: ease;
     --whitesmoke-color: #fafafa;
     --blue-color: #2c7de7;
+    --black-color: #292929;
+    --gray-color: #ababab;
 }
 
 body{
@@ -34,11 +36,15 @@ body{
 .bg-primary-color{
     background-color: var(--primary-color);
 }
+
 .bg-yellow-color{
     background-color: var(--yellow-color);
 }
 .bg-transparent{
     background-color: transparent !important;
+}
+.bg-black-color{
+    background-color: var(--black-color);
 }
 .font-poppins{
     font-family: 'Poppins', sans-serif;
@@ -52,6 +58,12 @@ body{
   -webkit-box-orient: vertical;  
   overflow: hidden;              
   text-overflow: ellipsis;       
+}
+.text-yellow{
+    color: var(--yellow-color);
+}
+.text-gray{
+    color: var(--gray-color);
 }
 .text-outline {
     text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,

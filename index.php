@@ -55,19 +55,19 @@
     <div class="position-relative">
         <div class="position-absolute top-50 start-50 translate-middle px-5 py-1 drop-shadow rounded-5 z-2 bg-white" style="background-color: #f4f7fc;">
             <div class="d-flex gap-5 ">
-                <a class="cursor-pointer text-decoration-none text-dark other-channel py-2">
+                <a href="" class="cursor-pointer text-decoration-none text-dark other-channel py-2">
                     <img style="width: 100px; height: 60px" class="object-fit-contain" src="assets/images/rawang.png" alt="">
                     <p class="text-center mb-0">Rawang</p>
                 </a>
-                <a class="cursor-pointer text-decoration-none text-dark other-channel p-2">
+                <a href="rakhine.php" class="cursor-pointer text-decoration-none text-dark other-channel p-2">
                     <img style="width: 100px; height: 60px" class="object-fit-contain" src="assets/images/rakhine.png" alt="">
                     <p class="text-center mb-0">Rakhine</p>
                 </a>
-                <a class="cursor-pointer text-decoration-none text-dark other-channel p-2">
+                <a href="shan.php" class="cursor-pointer text-decoration-none text-dark other-channel p-2">
                     <img style="width: 100px; height: 60px" class="object-fit-contain" src="assets/images/shan.png" alt="">
                     <p class="text-center mb-0">Shan</p>
                 </a>
-                <a class="cursor-pointer text-decoration-none text-dark other-channel p-2">
+                <a href="mon.php" class="cursor-pointer text-decoration-none text-dark other-channel p-2">
                     <img style="width: 100px; height: 60px" class="object-fit-contain" src="assets/images/mon.png" alt="">
                     <p class="text-center mb-0">Mon</p>
                 </a>

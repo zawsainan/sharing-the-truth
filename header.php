@@ -13,7 +13,7 @@
 <body>
     <!-- Nav bar section  -->
     <nav class="position-relative">
-        <div class="navbar navbar-expand-lg bg-transparent position- w-100 z-3 top-0 py-0">
+        <div class="navbar navbar-expand-lg bg-transparent position-absolute w-100 z-3 top-0 py-0">
             <div class="container-fluid px-1 px-md-4 " style="background-color: rgba(0, 0, 0, 0.3);">
                 <a class="navbar-brand py-2" href="/">
                     <div class="d-inline-flex align-items-center">
@@ -55,7 +55,7 @@
                                 Other Channels
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Rawang</a></li>
+                                <li><a class="dropdown-item" href="rakhine.php">Rakhine</a></li>
                                 <li><a class="dropdown-item" href="#">Shan</a></li>
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
