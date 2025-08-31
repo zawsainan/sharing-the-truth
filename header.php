@@ -13,7 +13,7 @@
 <body>
     <!-- Nav bar section  -->
     <nav class="position-relative">
-        <div class="navbar navbar-expand-lg bg-transparent position-absolute w-100 z-3 top-0 py-0">
+        <div class="navbar navbar-expand-lg bg-transparent position- w-100 z-3 top-0 py-0">
             <div class="container-fluid px-1 px-md-4 " style="background-color: rgba(0, 0, 0, 0.3);">
                 <a class="navbar-brand py-2" href="/">
                     <div class="d-inline-flex align-items-center">
@@ -36,10 +36,10 @@
                             <a class="nav-link text-white" href="#">Articles</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Videos</a>
+                            <a class="nav-link text-white" href="videos.php">Videos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Audios</a>
+                            <a class="nav-link text-white" href="audios.php">Audios</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" href="activities.php">Activities</a>
