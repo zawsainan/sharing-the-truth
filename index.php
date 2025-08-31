@@ -33,7 +33,7 @@
                 </div>
             </div>
             <div class="carousel-item" data-bs-interval="3000">
-                <img loading="eager" src="assets/images/slider-5.webp" class="d-block w-100" alt="...">
+                <img loading="eager" src="assets/images/slider-5.png" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Fifth slide label</h5>
                     <p>လူသားများ၏အပြစ်ကိုလွတ်၍ အပါယ်ငရဲမှ ကယ်တင်ရန် အပြစ်လွတ်ခြင်း အမိန့်ကို ထုတ်ခဲ့သောဘုရားသည် ယေရှုခရစ်တော်ဖြစ်ကြောင်း သင်သိပါသလား။</p>

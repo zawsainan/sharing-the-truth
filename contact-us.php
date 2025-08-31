@@ -1,7 +1,7 @@
 <?php include('header.php') ?>
 <main>
     <section class="container-fluid py-5 banner-image">
-        <h1 class="text-white text-center py-4 py-lg-5 position-relative z-2">Contact Us</h1>
+        <h1 class="banner-text">Contact Us</h1>
     </section>
     <div class="container my-4 my-lg-5">
         <div class="row g-3">

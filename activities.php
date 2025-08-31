@@ -2,7 +2,7 @@
 
 <main>
     <section class="container-fluid py-5 banner-image">
-        <h1 class="text-white text-center py-4 py-lg-5 position-relative z-2">Activities</h1>
+        <h1 class="banner-text">Activities</h1>
     </section>
     <div class="container py-4 py-lg-5">
         <div class="row g-3">

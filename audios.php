@@ -1,4 +1,7 @@
 <?php include('header.php') ?>
+<section class="container-fluid py-5 banner-image">
+    <h1 class="banner-text">Audios</h1>
+</section>
 <div class="container py-4">
     <div class="mx-auto" style="max-width: 900px;">
         <!-- Breadcrumbs -->

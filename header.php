@@ -19,8 +19,8 @@
                     <div class="d-inline-flex align-items-center">
                         <img src="/assets/images/logo.png" class="logo" alt="">
                         <div class="ms-3 d-none d-md-block">
-                            <h4 class="text-outline mb-0">Sharing The Truth</h4>
-                            <p class="text-xs text-white mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+                            <h3 class=" mb-0 text-primary-color">Sharing The Truth</h3>
+                            <p class="text-xs text-gray mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
                         </div>
                     </div>
                 </a>
@@ -28,7 +28,7 @@
                     <span class="navbar-toggler-icon text-white"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="ms-auto navbar-nav">
+                    <ul class="ms-auto navbar-nav gap-4">
                         <li class="nav-item">
                             <a class="nav-link text-white active" aria-current="page" href="/">Home</a>
                         </li>
@@ -50,7 +50,7 @@
                         <li class="nav-item">
                             <a class="nav-link text-white" href="contact-us.php">Contact Us</a>
                         </li>
-                        <li class="nav-item dropdown">
+                        <!-- <li class="nav-item dropdown">
                             <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Other Channels
                             </a>
@@ -59,7 +59,7 @@
                                 <li><a class="dropdown-item" href="#">Shan</a></li>
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
-                        </li>
+                        </li> -->
 
                     </ul>
                 </div>
