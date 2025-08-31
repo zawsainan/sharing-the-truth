@@ -1,4 +1,269 @@
 <?php include('header.php') ?>
+
+<!-- Chat Widget Styles -->
+<style>
+    .chat-widget {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 9999;
+    }
+
+    .chat-widget .chat-toggle {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        transition: all 0.3s ease;
+        border: none;
+    }
+
+    .chat-widget .chat-toggle:hover {
+        transform: scale(1.1);
+        box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+    }
+
+    .chat-widget .chat-toggle svg {
+        width: 28px;
+        height: 28px;
+        fill: white;
+        transition: transform 0.3s ease;
+    }
+
+    .chat-widget .chat-toggle.active svg {
+        transform: rotate(45deg);
+    }
+
+    .chat-widget .chat-container {
+        position: absolute;
+        bottom: 80px;
+        right: 0;
+        width: 400px;
+        height: 600px;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        transform: translateY(20px) scale(0.95);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        overflow: hidden;
+    }
+
+    .chat-widget .chat-container.open {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .chat-widget .chat-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 20px;
+        color: white;
+        border-radius: 20px 20px 0 0;
+    }
+
+    .chat-widget .chat-header h3 {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+
+    .chat-widget .chat-header p {
+        font-size: 14px;
+        opacity: 0.9;
+        margin: 0;
+    }
+
+    .chat-widget .chat-messages {
+        height: 420px;
+        overflow-y: auto;
+        padding: 20px;
+        background: #f8fafc;
+    }
+
+    .chat-widget .chat-messages::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .chat-widget .chat-messages::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 3px;
+    }
+
+    .chat-widget .chat-messages::-webkit-scrollbar-thumb {
+        background: #c1c1c1;
+        border-radius: 3px;
+    }
+
+    /* Animations (namespaced to avoid conflicts) */
+    @keyframes ragc-slide-in {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes ragc-blink {
+        0%, 50% { opacity: 1; }
+        51%, 100% { opacity: 0; }
+    }
+    @keyframes ragc-typing {
+        0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
+        40% { transform: scale(1); opacity: 1; }
+    }
+
+    .chat-widget .message {
+        margin-bottom: 15px;
+        animation: ragc-slide-in 0.3s ease;
+    }
+    .chat-widget .message.user { text-align: right; }
+    .chat-widget .message.bot { text-align: left; }
+
+    .chat-widget .message-bubble {
+        display: inline-block;
+        padding: 12px 16px;
+        border-radius: 18px;
+        max-width: 80%;
+        word-wrap: break-word;
+        position: relative;
+    }
+
+    .chat-widget .message.user .message-bubble {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+    }
+
+    .chat-widget .message.bot .message-bubble {
+        background: white;
+        color: #333;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .chat-widget .streaming-message { position: relative; }
+
+    .chat-widget .cursor {
+        display: inline-block;
+        width: 2px;
+        height: 1em;
+        background-color: #667eea;
+        animation: ragc-blink 1s infinite;
+        margin-left: 2px;
+    }
+
+    .chat-widget .chat-input-container {
+        padding: 20px;
+        background: white;
+        border-radius: 0 0 20px 20px;
+        border-top: 1px solid #e2e8f0;
+    }
+
+    .chat-widget .chat-input-form {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin: 0;
+    }
+
+    .chat-widget .chat-input {
+        flex: 1;
+        padding: 12px 16px;
+        border: 2px solid #e2e8f0;
+        border-radius: 25px;
+        font-size: 14px;
+        outline: none;
+        transition: all 0.3s ease;
+    }
+
+    .chat-widget .chat-input:focus {
+        border-color: #667eea;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    .chat-widget .send-button {
+        width: 45px;
+        height: 45px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+    }
+
+    .chat-widget .send-button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+    }
+
+    .chat-widget .send-button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        transform: none;
+    }
+
+    .chat-widget .send-button svg {
+        width: 20px;
+        height: 20px;
+        fill: white;
+    }
+
+    .chat-widget .typing-indicator {
+        display: flex;
+        align-items: center;
+        padding: 12px 16px;
+        background: white;
+        border-radius: 18px;
+        margin-bottom: 15px;
+        border: 1px solid #e2e8f0;
+        max-width: fit-content;
+    }
+
+    .chat-widget .typing-dots {
+        display: flex;
+        gap: 4px;
+    }
+
+    .chat-widget .typing-dot {
+        width: 8px;
+        height: 8px;
+        background: #667eea;
+        border-radius: 50%;
+        animation: ragc-typing 1.4s infinite ease-in-out;
+    }
+
+    .chat-widget .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+    .chat-widget .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+
+    .chat-widget .error-message {
+        color: #ef4444;
+        font-size: 12px;
+        margin-top: 5px;
+        padding: 8px 12px;
+        background: #fef2f2;
+        border-radius: 8px;
+        border-left: 3px solid #ef4444;
+    }
+
+    @media (max-width: 480px) {
+        .chat-widget .chat-container {
+            width: 350px;
+            height: 500px;
+            bottom: 80px;
+            right: 10px;
+        }
+        .chat-widget {
+            bottom: 10px;
+            right: 10px;
+        }
+    }
+</style>
+
 <main>
     <!-- Carousel Section -->
     <div id="carouselExampleDark" class="carousel bg-black slide" data-bs-wrap="true" data-bs-pause="false" data-bs-ride="carousel">
@@ -192,31 +457,68 @@
         </div>
     </div>
 </main>
+
+<!-- Chat Widget -->
+<div class="chat-widget">
+    <div class="chat-container" id="chatContainer">
+        <div class="chat-header">
+            <h3>Sharing the Truth</h3>
+        </div>
+        
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot">
+                <div class="message-bubble">
+                    မင်္ဂလာပါ! သင်ရဲ့ မေးခွန်းတွေကို ဖြေကြားပေးနိုင်ပါတယ်။
+                </div>
+            </div>
+        </div>
+        
+        <div class="chat-input-container">
+            <form class="chat-input-form" id="chatForm">
+                <input 
+                    type="text" 
+                    class="chat-input" 
+                    id="chatInput" 
+                    placeholder="Type your message here..."
+                    autocomplete="off"
+                >
+                <button type="submit" class="send-button" id="sendButton">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M2,21L23,12L2,3V10L17,12L2,14V21Z" />
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <button class="chat-toggle" id="chatToggle">
+        <svg viewBox="0 0 24 24">
+            <path d="M20,2H4A2,2 0 0,0 2,4V22L6,18H20A2,2 0 0,0 22,16V4A2,2 0 0,0 20,2Z" />
+        </svg>
+    </button>
+</div>
+
 <script>
-    // Select all video containers
+    // Video hover functionality (existing)
     const videoContainers = document.querySelectorAll('.video-container');
 
     videoContainers.forEach(container => {
         const videoPlayer = container.querySelector('.videoPlayer');
 
-        // Play video on hover
         container.addEventListener('mouseenter', () => {
             const playPromise = videoPlayer.play();
             if (playPromise !== undefined) {
                 playPromise.catch(err => {
-                    // Ignore play interruption errors
                     console.warn("Play interrupted:", err);
                 });
             }
         });
 
-        // Pause + reset when mouse leaves
         container.addEventListener('mouseleave', () => {
             videoPlayer.pause();
             videoPlayer.currentTime = 0;
         });
 
-        // For mobile (click toggle play/pause)
         container.addEventListener('click', () => {
             if (videoPlayer.paused) {
                 videoPlayer.play().catch(err => console.warn("Play error:", err));
@@ -225,7 +527,265 @@
             }
         });
     });
-</script>
 
+    // RAG Chatbox functionality
+    class RAGChatbox {
+        constructor() {
+            this.apiUrl = 'http://127.0.0.1:8000/query/stream';
+            this.isOpen = false;
+            this.isLoading = false;
+            this.currentStreamingMessage = null;
+            
+            this.initializeElements();
+            this.bindEvents();
+        }
+
+        initializeElements() {
+            this.chatToggle = document.getElementById('chatToggle');
+            this.chatContainer = document.getElementById('chatContainer');
+            this.chatMessages = document.getElementById('chatMessages');
+            this.chatForm = document.getElementById('chatForm');
+            this.chatInput = document.getElementById('chatInput');
+            this.sendButton = document.getElementById('sendButton');
+        }
+
+        bindEvents() {
+            this.chatToggle.addEventListener('click', () => this.toggleChat());
+            this.chatForm.addEventListener('submit', (e) => this.handleSubmit(e));
+            this.chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    this.handleSubmit(e);
+                }
+            });
+        }
+
+        toggleChat() {
+            this.isOpen = !this.isOpen;
+            this.chatContainer.classList.toggle('open', this.isOpen);
+            this.chatToggle.classList.toggle('active', this.isOpen);
+            
+            if (this.isOpen) {
+                setTimeout(() => this.chatInput.focus(), 300);
+            }
+        }
+
+        async handleSubmit(e) {
+            e.preventDefault();
+            
+            const message = this.chatInput.value.trim();
+            if (!message || this.isLoading) return;
+
+            this.addMessage(message, 'user');
+            this.chatInput.value = '';
+            this.setLoading(true);
+
+            try {
+                await this.streamResponse(message);
+            } catch (error) {
+                this.addErrorMessage('Sorry, I encountered an error. Please try again.');
+                console.error('Chat API Error:', error);
+            } finally {
+                this.setLoading(false);
+            }
+        }
+
+        async streamResponse(query) {
+            const requestBody = {
+                query: query,
+                k: 5,
+                search_type: "similarity",
+                use_cache: true,
+                include_sources: true
+            };
+
+            try {
+                const response = await fetch(this.apiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(requestBody)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                this.currentStreamingMessage = this.createStreamingMessage();
+                
+                const reader = response.body.getReader();
+                const decoder = new TextDecoder();
+                let buffer = '';
+
+                while (true) {
+                    const { done, value } = await reader.read();
+                    
+                    if (done) break;
+                    
+                    buffer += decoder.decode(value, { stream: true });
+                    
+                    // Process complete lines
+                    const lines = buffer.split('\n');
+                    buffer = lines.pop() || ''; // Keep incomplete line in buffer
+                    
+                    for (const line of lines) {
+                        if (line.startsWith('data: ')) {
+                            try {
+                                const data = JSON.parse(line.slice(6));
+                                this.handleStreamData(data);
+                            } catch (e) {
+                                console.warn('Failed to parse streaming data:', e);
+                            }
+                        }
+                    }
+                }
+                
+                // Finalize the streaming message
+                this.finalizeStreamingMessage();
+                
+            } catch (error) {
+                console.error('Streaming error:', error);
+                throw error;
+            }
+        }
+
+        createStreamingMessage() {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message bot streaming-message';
+            
+            const bubbleDiv = document.createElement('div');
+            bubbleDiv.className = 'message-bubble';
+            
+            const contentSpan = document.createElement('span');
+            contentSpan.className = 'streaming-content';
+            
+            const cursor = document.createElement('span');
+            cursor.className = 'cursor';
+            
+            bubbleDiv.appendChild(contentSpan);
+            bubbleDiv.appendChild(cursor);
+            messageDiv.appendChild(bubbleDiv);
+            
+            this.chatMessages.appendChild(messageDiv);
+            this.scrollToBottom();
+            
+            return {
+                element: messageDiv,
+                content: contentSpan,
+                cursor: cursor
+            };
+        }
+
+        handleStreamData(data) {
+            if (!this.currentStreamingMessage) return;
+            
+            switch (data.type) {
+                case 'status':
+                    console.log('Status:', data.message);
+                    break;
+                    
+                case 'content':
+                    this.currentStreamingMessage.content.textContent += data.data;
+                    this.scrollToBottom();
+                    break;
+                    
+                case 'error':
+                    this.currentStreamingMessage.content.textContent = 'Sorry, I encountered an error: ' + data.message;
+                    this.finalizeStreamingMessage();
+                    break;
+                    
+                case 'done':
+                    console.log('Streaming complete. Cached:', data.cached);
+                    this.finalizeStreamingMessage();
+                    break;
+            }
+        }
+
+        finalizeStreamingMessage() {
+            if (this.currentStreamingMessage) {
+                if (this.currentStreamingMessage.cursor) {
+                    this.currentStreamingMessage.cursor.remove();
+                }
+                
+                this.currentStreamingMessage.element.classList.remove('streaming-message');
+                this.currentStreamingMessage = null;
+            }
+        }
+
+        addMessage(content, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}`;
+            
+            const bubbleDiv = document.createElement('div');
+            bubbleDiv.className = 'message-bubble';
+            bubbleDiv.textContent = content;
+            
+            messageDiv.appendChild(bubbleDiv);
+            this.chatMessages.appendChild(messageDiv);
+            this.scrollToBottom();
+        }
+
+        addErrorMessage(message) {
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error-message';
+            errorDiv.textContent = message;
+            this.chatMessages.appendChild(errorDiv);
+            this.scrollToBottom();
+        }
+
+        setLoading(loading) {
+            this.isLoading = loading;
+            this.sendButton.disabled = loading;
+            
+            if (loading && !this.currentStreamingMessage) {
+                this.addTypingIndicator();
+            } else if (!loading) {
+                this.removeTypingIndicator();
+            }
+        }
+
+        addTypingIndicator() {
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'message bot';
+            typingDiv.id = 'typingIndicator';
+            
+            const indicator = document.createElement('div');
+            indicator.className = 'typing-indicator';
+            
+            const dots = document.createElement('div');
+            dots.className = 'typing-dots';
+            
+            for (let i = 0; i < 3; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'typing-dot';
+                dots.appendChild(dot);
+            }
+            
+            indicator.appendChild(dots);
+            typingDiv.appendChild(indicator);
+            this.chatMessages.appendChild(typingDiv);
+            this.scrollToBottom();
+        }
+
+        removeTypingIndicator() {
+            const indicator = document.getElementById('typingIndicator');
+            if (indicator) {
+                indicator.remove();
+            }
+        }
+
+        scrollToBottom() {
+            setTimeout(() => {
+                this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
+            }, 50);
+        }
+    }
+
+    // Initialize the chatbox when the page loads
+    document.addEventListener('DOMContentLoaded', () => {
+        new RAGChatbox();
+    });
+</script>
 
 <?php include('footer.php') ?>
