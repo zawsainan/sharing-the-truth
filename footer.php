@@ -29,7 +29,7 @@
 
                         </span>
 
-                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt nihil repudiandae a similique ipsam enim voluptas asperiores eligendi rem cupiditate.
+                        <span>ဂျူပလီရွာ၊ ၇-မိုင်၊ လေယာဉ်ကွင်းအုပ်စု၊ ပူတာအိုမြို့၊ ကချင်ပြည်နယ်။
                         </span>
                     </li>
                     <li class="d-flex align-items-start mb-3 gap-2">

@@ -66,6 +66,14 @@
         padding: 20px;
         color: white;
         border-radius: 20px 20px 0 0;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .chat-widget .chat-header-content {
+        flex: 1;
     }
 
     .chat-widget .chat-header h3 {
@@ -78,6 +86,38 @@
         font-size: 14px;
         opacity: 0.9;
         margin: 0;
+    }
+
+    .chat-widget .chat-close-btn {
+        width: 32px;
+        height: 32px;
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+        margin-left: 15px;
+        flex-shrink: 0;
+    }
+
+    .chat-widget .chat-close-btn:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: scale(1.1);
+    }
+
+    .chat-widget .chat-close-btn svg {
+        width: 18px;
+        height: 18px;
+        fill: white;
+        transition: transform 0.2s ease;
+    }
+
+    .chat-widget .chat-close-btn:hover svg {
+        transform: rotate(90deg);
     }
 
     .chat-widget .chat-messages {
@@ -462,7 +502,15 @@
 <div class="chat-widget">
     <div class="chat-container" id="chatContainer">
         <div class="chat-header">
-            <h3>Sharing the Truth</h3>
+            <div class="chat-header-content">
+                <h3>Sharing the Truth</h3>
+                <p>Ask me anything about faith</p>
+            </div>
+            <button class="chat-close-btn" id="chatCloseBtn" title="Close chat">
+                <svg viewBox="0 0 24 24">
+                    <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+                </svg>
+            </button>
         </div>
         
         <div class="chat-messages" id="chatMessages">
@@ -547,10 +595,12 @@
             this.chatForm = document.getElementById('chatForm');
             this.chatInput = document.getElementById('chatInput');
             this.sendButton = document.getElementById('sendButton');
+            this.chatCloseBtn = document.getElementById('chatCloseBtn');
         }
 
         bindEvents() {
             this.chatToggle.addEventListener('click', () => this.toggleChat());
+            this.chatCloseBtn.addEventListener('click', () => this.closeChat());
             this.chatForm.addEventListener('submit', (e) => this.handleSubmit(e));
             this.chatInput.addEventListener('keypress', (e) => {
                 if (e.key === 'Enter' && !e.shiftKey) {
@@ -568,6 +618,12 @@
             if (this.isOpen) {
                 setTimeout(() => this.chatInput.focus(), 300);
             }
+        }
+
+        closeChat() {
+            this.isOpen = false;
+            this.chatContainer.classList.remove('open');
+            this.chatToggle.classList.remove('active');
         }
 
         async handleSubmit(e) {
@@ -738,9 +794,9 @@
             this.isLoading = loading;
             this.sendButton.disabled = loading;
             
-            if (loading && !this.currentStreamingMessage) {
+            if (loading) {
                 this.addTypingIndicator();
-            } else if (!loading) {
+            } else {
                 this.removeTypingIndicator();
             }
         }
