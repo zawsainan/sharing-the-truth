@@ -21,11 +21,68 @@
         box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
         transition: all 0.3s ease;
         border: none;
+        animation: ragc-pulse 2s infinite;
+        position: relative;
     }
 
     .chat-widget .chat-toggle:hover {
         transform: scale(1.1);
         box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+        animation-play-state: paused;
+    }
+
+    .chat-widget .chat-toggle.active {
+        animation-play-state: paused;
+    }
+
+    .chat-widget .chat-toggle::before {
+        content: 'Chat with us';
+        position: absolute;
+        bottom: 70px;
+        right: 0;
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 8px 12px;
+        border-radius: 8px;
+        font-size: 12px;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(5px);
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        z-index: 1000;
+    }
+
+    .chat-widget .chat-toggle::after {
+        content: '';
+        position: absolute;
+        bottom: 62px;
+        right: 16px;
+        width: 0;
+        height: 0;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-top: 6px solid rgba(0, 0, 0, 0.8);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 1000;
+    }
+
+    .chat-widget .chat-toggle:hover::before,
+    .chat-widget .chat-toggle:hover::after {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        animation: ragc-tooltip-fade 0.3s ease;
+    }
+
+    .chat-widget .chat-toggle.active:hover::before,
+    .chat-widget .chat-toggle.active:hover::after {
+        opacity: 0;
+        visibility: hidden;
     }
 
     .chat-widget .chat-toggle svg {
