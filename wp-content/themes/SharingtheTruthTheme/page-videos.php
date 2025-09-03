@@ -4,13 +4,7 @@
 </section>
 <div class="container py-4">
     <div class="mx-auto" style="max-width: 900px;">
-        <!-- Breadcrumbs -->
-        <nav aria-label="breadcrumb" class="mb-3">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a class="text-decoration-none text-dark" href="index.php">Home</a></li>
-                <li class="breadcrumb-item active">Videos</li>
-            </ol>
-        </nav>
+
 
         <div class="row gx-3 my-3">
 
