@@ -18,6 +18,9 @@ body{
 }
 
 /* Utility Classes */
+.custom-text-shadow{
+    text-shadow: 1px 1px 2px var(--gray-color);
+}
 .drop-shadow {
     box-shadow: 0px 4px 8px 0px #0000000f, 0px 0px 4px 0px #0000000a !important;
 }
@@ -59,6 +62,13 @@ body{
   overflow: hidden;              
   text-overflow: ellipsis;       
 }
+iframe{
+    width: 100% !important;
+    height: 100% !important;
+}
+.youtube > div{
+  min-height: 250px !important;
+}
 .text-yellow{
     color: var(--yellow-color);
 }
@@ -74,6 +84,13 @@ body{
 }
 p{
     text-align: justify !important;
+    line-height: 1.9 !important;
+    padding: 5px 0 !important;
+}
+li{
+    text-align: justify !important;
+    line-height: 1.9 !important;
+    padding: 3px 0 !important;
 }
 .navbar-toggler-icon {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
@@ -109,16 +126,24 @@ p{
         content: '';
         position: absolute;
         width: 0;
-        height: 2px; 
+        height: 3px; 
         left: 0;
         bottom: 0;
-        background-color: var(--bs-primary); 
+        background-color: var(--primary-color); 
         transition: width 0.3s ease-out; 
     }
 
     .btn-view-all:hover::after {
         width: 100%; 
     }
+.card-shadow {
+    box-shadow: 0 0 .5rem rgba(0, 0, 0, .075) !important; 
+    transition: box-shadow 0.3s ease; 
+}
+
+.card-shadow:hover {
+    box-shadow: 0 0 .5rem var(--primary-color) !important; 
+}
 
 /* Article Card  */
 .see-more-btn {
@@ -163,13 +188,6 @@ p{
     height: 70px;
     border-radius: 50%;
 }
-.other-channel{
-    border-bottom: 2px solid transparent;
-    /* border-radius: 50%; */
-}
-.other-channel:hover{
-    border-color: #e0e7ff;
-}
 .carousel-item{
     background-color: black !important;
 }
@@ -201,7 +219,6 @@ p{
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-    background-image: url("/assets/images/slider-1.png");
     height: 300px;
 }
 .banner-text{
@@ -298,6 +315,7 @@ p{
   align-items: center;
   justify-content: center;
   padding: 10px;
+  overflow: hidden;
 }
 
 .overlay{
@@ -316,6 +334,7 @@ p{
     width: 100%;
     max-width: 900px;
     height: auto;
+    max-height: 600px;
     z-index: 4;
 }
 

@@ -5,8 +5,6 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Sharing the Truth</title>
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="shortcut icon" href="<?= get_template_directory_uri(); ?>/includes/assets/images/site-icon.png" type="image/png">
 	<?php wp_head(); ?>
 </head>
@@ -29,28 +27,27 @@
 					<span class="navbar-toggler-icon text-white"></span>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarNav">
-					<ul class="ms-auto navbar-nav gap-4">
+					<ul class="ms-auto navbar-nav gap-5">
 						<li class="nav-item">
-							<a class="nav-link text-white <?php is_front_page() ?? 'active' ?>" aria-current="page" href="/">Home</a>
+							<a class="nav-link px-0 text-white <?php echo is_front_page() ? 'active' : ''; ?>" aria-current="page" href="/">Home</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-white" href="#">Articles</a>
+							<a class="nav-link px-0 text-white <?php echo is_page('articles') ? 'active' : ''; ?>" href="./articles">Articles</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-white <?php is_page('videos') ?? 'active' ?>" href="./videos">Videos</a>
+							<a class="nav-link px-0 text-white <?php echo is_page('videos') ? 'active' : ''; ?>" href="./videos">Videos</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-white <?php is_page('audios') ?? 'active' ?>" href="./audios">Audios</a>
-
+							<a class="nav-link px-0 text-white <?php echo is_page('audios') ? 'active' : ''; ?>" href="./audios">Audios</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-white" href="./activities">Activities</a>
+							<a class="nav-link px-0 text-white <?php echo is_page('activities') ? 'active' : ''; ?>" href="./activities">Activities</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-white" href="about-us.php">About Us</a>
+							<a class="nav-link px-0 text-white <?php echo is_page('about-us') ? 'active' : ''; ?>" href="./about-us">About Us</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-white" href="contact-us.php">Contact Us</a>
+							<a class="nav-link px-0 text-white <?php echo is_page('contact-us') ? 'active' : ''; ?>" href="./contact-us">Contact Us</a>
 						</li>
 						<!-- <li class="nav-item dropdown">
                             <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

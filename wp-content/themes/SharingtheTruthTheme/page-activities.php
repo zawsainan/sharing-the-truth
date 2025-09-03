@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <main>
-    <section class="container-fluid py-5 banner-image">
+    <section class="container-fluid py-5 banner-image" style="background-image: url('<?php echo get_template_directory_uri(); ?>/includes/assets/images/slider-1.png');">
         <h1 class="banner-text">Activities</h1>
     </section>
     <div class="container py-4 py-lg-5">
@@ -17,11 +17,11 @@
                     $data->the_post();
             ?>
 
-                    <div class="col-12 col-md-6 col-lg-4" onclick="showModal(this)" data-image-url="assets/images/slider-4.png" data-title="Not Just a Title">
+                    <div class="col-12 col-md-6 col-lg-4" onclick="showModal(this)" data-image-url="<?php the_field('activity_image') ?>" data-title="<?php echo the_title(); ?>">
                         <div class="overflow-hidden w-100 h-100 rounded-3 zoom-in ">
                             <img src="<?php the_field('activity_image') ?>" alt="" class="w-100 h-100 object-fit-cover">
                             <div class="gallery-overlay">
-                                <img src="<?php get_template_directory_uri(); ?>/includes/assets/icons/expand.png" class="expand" alt="">
+                                <img src="<?php echo get_template_directory_uri(); ?>/includes/assets/icons/expand.png" class="expand" alt="">
                             </div>
                             <h4 class="gallery-title">Title</h4>
                         </div>
@@ -63,7 +63,7 @@
                 </svg>
             </button>
         </div>
-        <img id="modalImage" src="assets/images/slider-4.png" alt="" class="w-100 rounded-2 object-fit-cover">
+        <img id="modalImage" alt="" class="w-100 rounded-2 object-fit-cover" style="height: 600px;">
     </div>
 </div>
 <script>
