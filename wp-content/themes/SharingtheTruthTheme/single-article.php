@@ -2,8 +2,8 @@
 
 <main>
     <!-- Banner Section -->
-    <section class="container-fluid py-5 banner-image">
-        <h1 class="banner-text">Articles</h1>
+    <section class="container-fluid py-5 banner-image" style="background-image: url('<?php echo get_template_directory_uri(); ?>/includes/assets/images/slider-1.png');">
+        <h1 class="banner-text">About Us</h1>
     </section>
 
     <div class="container my-5">

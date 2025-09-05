@@ -11,6 +11,13 @@
     --gray-color: #ababab;
 }
 
+.form-allowed-tags{
+    display: none;
+}
+.alert{
+    display: none;
+}
+
 body{
     box-sizing: border-box;
     padding: 0;
